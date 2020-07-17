@@ -1,0 +1,26 @@
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="Candidat.length <= 0" class="no-data text-center">There is no employee added yet!</p>
+  
+    <!-- Employee list -->
+    <table class="table table-bordered" *ngIf="Candidat.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Candidats of Candidat">
+          <td>{{Candidats.Nom}}</td>
+          <td>{{Candidats.Prenom}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/create-candidat/']">
+              <button type="button" class="btn btn-success btn-sm">Editer</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-danger btn-sm"><a routerLink="/create-candidat">Ajouter</a></button>
+  </div>
